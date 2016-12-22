@@ -1,21 +1,22 @@
 package main
 
 import (
-	"net/http"
-	"github.com/labstack/echo"
+	"github.com/cutedogspark/api-server-echo/service/Echo"
+	"github.com/cutedogspark/api-server-echo/config"
+)
+
+const (
+	echoDebug = true
+	echoPort = 8080
 )
 
 func main() {
-	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Working....")
-	})
-
-	e.GET("/ping",func(c echo.Context) error {
-		return c.JSON(http.StatusOK, map[string]interface{}{
-			"message":    "pong",
-		})
-	})
-
-	e.Logger.Fatal(e.Start(":8080"))
+	var WebService *Echo.Service
+	config.Init(WebService)
+	WebService = Echo.NewServer(echoPort, echoDebug)
+	WebService.Init()
+	WebService.add()
+	WebService.Run()
+	for {
+	}
 }

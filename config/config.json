@@ -1,0 +1,35 @@
+{
+  "Application": {
+    "Name": "DJ2",
+    "ENV": "development"
+  },
+  "Database": {
+    "development": {
+      "mysql": {
+        "host": "localhost",
+        "name": "DJ2_DEV",
+        "user": "root",
+        "password": "root",
+        "port": "3306"
+      }
+    },
+    "test": {
+      "mysql": {
+        "host": "localhost",
+        "name": "DJ2_TEST",
+        "user": "root",
+        "password": "root",
+        "port": "3306"
+      }
+    },
+    "production": {
+      "mysql": {
+        "host": "localhost",
+        "name": "DJ2_PRO",
+        "user": "root",
+        "password": "root",
+        "port": "3306"
+      }
+    }
+  }
+}
